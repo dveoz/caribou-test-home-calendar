@@ -63,11 +63,10 @@ export class TimeSlots {
 
     // find the new index following after the previous meeting
     let index = this.indexBinarySearch(calendar, desiredMeeting,
-      (m0: Meeting, m1: Meeting) => {
-        return m0.start.getTime() == m1.start.getTime() && m0.end.getTime() == m1.start.getTime() ?
-          0 : m0.start.getTime() > m1.start.getTime() && m0.end.getTime() > m1.end.getTime() ?
-            1 : -1
-      }
+      (m0: Meeting, m1: Meeting) =>
+        m0.start.getTime() < m1.start.getTime() && m0.end.getTime() <= m1.start.getTime() ?
+          -1 : m0.start.getTime() > m1.start.getTime() && m0.start.getTime() <= m1.end.getTime() ?
+            1 : 0
     )
     console.log(`Start looking from position: ${index}`)
 
