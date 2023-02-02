@@ -1,0 +1,22 @@
+{
+  "name": "caribou",
+  "version": "1.0.0",
+  "description": "Take Home Test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx ts-node-dev src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eugene Zimin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.16",
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}
