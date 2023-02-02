@@ -66,10 +66,9 @@ using this code will return us the index of the next element, following after th
 
 ```typescript
 (m0: Meeting, m1: Meeting) =>
-  m0.start.getTime() == m1.start.getTime() && m0.end.getTime() == m1.start.getTime() ?
-    0 : m0.start.getTime() > m1.start.getTime() && m0.end.getTime() > m1.end.getTime() ?
-      1 : -1
-)
+  m0.start.getTime() < m1.start.getTime() && m0.end.getTime() <= m1.start.getTime() ?
+    -1 : m0.start.getTime() > m1.start.getTime() && m0.start.getTime() <= m1.end.getTime() ?
+      1 : 0
 ```
 
 As a result we will get a number containing an index of the meeting from the Calendar array which need to be checked for any possible conflicts. If there are no conflicts - return `true` meaning it is possible to book it, otherwise - `false`, which means that time slope has intersections with the desired time.
